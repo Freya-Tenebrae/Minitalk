@@ -6,7 +6,7 @@
 /*   By: cmaginot <cmaginot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:07:26 by cmaginot          #+#    #+#             */
-/*   Updated: 2021/08/02 14:39:49 by cmaginot         ###   ########.fr       */
+/*   Updated: 2021/08/02 14:45:43 by cmaginot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int	main(int argc, char const **argv)
 {
+	(void)argc;
+	(void)argv;
 	return (0);
 }
