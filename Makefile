@@ -6,15 +6,15 @@
 #    By: cmaginot <cmaginot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/14 23:11:43 by cmaginot          #+#    #+#              #
-#    Updated: 2021/08/02 14:49:04 by cmaginot         ###   ########.fr        #
+#    Updated: 2021/08/05 15:35:51 by cmaginot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=minitalk
 NAME_BONUS=minitalk_bonus
-NAME_CLIENT=minitalk_client
-NAME_SERVER=minitalk_server
-NAME_SERVER_BONUS=minitalk_server_bonus
+NAME_CLIENT=client
+NAME_SERVER=server
+NAME_SERVER_BONUS=server_bonus
 
 SRCS_CLIENT=$(addprefix ${FOLDER}/, \
 	ft_minitalk_client_main.c)
