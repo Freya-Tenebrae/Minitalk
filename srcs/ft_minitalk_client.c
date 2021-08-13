@@ -6,7 +6,7 @@
 /*   By: cmaginot <cmaginot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:07:26 by cmaginot          #+#    #+#             */
-/*   Updated: 2021/08/13 09:39:54 by cmaginot         ###   ########.fr       */
+/*   Updated: 2021/08/13 09:48:35 by cmaginot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	ft_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
-static int	ft_send_char(int pid_server, const char char_to_send)
+static void	ft_send_char(int pid_server, const char char_to_send)
 {
 	int	i;
 	int	j;
@@ -38,25 +38,21 @@ static int	ft_send_char(int pid_server, const char char_to_send)
 		j = j >> 1;
 		usleep(500);
 	}
-	return (0);
 }
 
-static int	ft_sendstr(int pid_server, const char *str_to_send)
+static void	ft_sendstr(int pid_server, const char *str_to_send)
 {
 	while (*str_to_send)
 	{
-		if (ft_send_char(pid_server, *str_to_send) != 0)
-			return (-1);
+		ft_send_char(pid_server, *str_to_send);
 		str_to_send++;
 	}
-	if (ft_send_char(pid_server, *str_to_send) != 0)
-		return (-1);
-	return (0);
+	ft_send_char(pid_server, *str_to_send);
 }
 
 int	main(int argc, const char **argv)
 {
 	if (argc != 3)
 		ft_error("incorrect number of arguments");
-	return (ft_sendstr(ft_atoi(argv[1]), argv[2]));
+	ft_sendstr(ft_atoi(argv[1]), argv[2]);
 }
