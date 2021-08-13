@@ -6,61 +6,73 @@
 /*   By: cmaginot <cmaginot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:07:26 by cmaginot          #+#    #+#             */
-/*   Updated: 2021/08/05 17:43:27 by cmaginot         ###   ########.fr       */
+/*   Updated: 2021/08/13 08:19:05 by cmaginot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_minitalk_server.h"
 
-static void	ft_byte_null()
+static void	ft_error(char *str)
 {
-	ft_putstr("byte = 0\n"); // something to do here and replace that
+	ft_putstr_fd("ERROR : \n", 1);
+	ft_putstr_fd(str, 1);
+	ft_putchar_fd('\n', 1);
+	exit(EXIT_FAILURE);
 }
 
-static void	ft_byte_one()
+static void	ft_create_char_from_byte(int byte)
 {
-	ft_putstr("byte = 1\n"); // something to do here and replace that
-}
+	static int				byte_number;
+	static unsigned char	*c;
 
-static int	ft_loop()
-{
-	while (1)
+	if (c == NULL)
 	{
-		pause();
-		// something to do here
+		c = malloc(sizeof(char) * 1);
+		if (c == NULL)
+			ft_error("malloc error\n");
+		*c = 0;
 	}
-	return (1);
+	*c = *c << 1;
+	*c += byte;
+	byte_number++;
+	if (byte_number > 6)
+	{
+		if (*c != '\0')
+			ft_putchar(*c);
+		else
+			ft_putchar('\n');
+		byte_number = 0;
+		*c = 0;
+	}
 }
 
-int	main()
+static void	ft_get_byte(int signal, struct __siginfo *info, void *cont)
 {
-	struct sigaction	sa_bite_null;
-	struct sigaction	sa_bite_one;
+	(void)info;
+	(void)cont;
+	if (signal == SIGUSR2)
+		ft_create_char_from_byte(1);
+	else if (signal == SIGUSR1)
+		ft_create_char_from_byte(0);
+}
 
-	sa_bite_null.sa_flags = SA_SIGINFO;
-	sa_bite_one.sa_flags = SA_SIGINFO;
-	sa_bite_null.sa_sigaction = ft_byte_null;
-	sa_bite_one.sa_sigaction = ft_byte_one;
-	sigaction(SIGUSR1, &sa_bite_null, NULL);
-	sigaction(SIGUSR2, &sa_bite_one, NULL);
+int	main(void)
+{
+	struct sigaction	sa;
+
 	ft_putstr("Server PID : ");
 	ft_putnbr(getpid());
 	ft_putchar('\n');
-	return (ft_loop());
+	sa.sa_flags = SA_SIGINFO;
+	sa.sa_sigaction = ft_get_byte;
+	sigemptyset(&sa.sa_mask);
+	sigaddset(&sa.sa_mask, SIGUSR1);
+	sigaddset(&sa.sa_mask, SIGUSR2);
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
+	while (1)
+	{
+		pause();
+	}
+	return (1);
 }
-
-/*
-write
-signal
-sigemptyset
-sigaddset
-sigaction
-kill
-getpid
-malloc
-free
-pause
-sleep
-usleep
-exit
-*/
