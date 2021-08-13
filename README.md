@@ -18,8 +18,42 @@ git clone --recurse-submodules https://github.com/Freya-Tenebrae/Minitalk.git
 
 ### Compilation
 
-TODO
-
 ```shell
 make
+```
+
+### Exemple of uses
+
+
+In one terminal use the command 
+
+```shell
+./server
+```
+
+It'll show the PID of the server and will wait any message from a client. It'll look like this
+```shell
+./server
+Server PID : 14626
+
+```
+In an other terminal, use the command (after replacing the first argument by the correct PID)
+```shell
+./client 14569 "This is a test send by the 1rst Client."
+```
+you can used multiple client without restart the server
+```shell
+./client 14569 "This is a second test send by the 2nd Client."
+./client 14569 "This is a thirst test send by the 3nd Client."
+./client 14569 "This is a fourth test send by the 4nd Client."
+```
+
+The first terminal will look like this :
+```shell
+./server
+Server PID : 14626
+This is a test send by the 1rst Client.
+This is a second test send by the 2nd Client.
+This is a thirst test send by the 3nd Client.
+This is a fourth test send by the 4nd Client.
 ```
