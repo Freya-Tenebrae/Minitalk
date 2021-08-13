@@ -57,3 +57,9 @@ This is a second test send by the 2nd Client.
 This is a thirst test send by the 3nd Client.
 This is a fourth test send by the 4nd Client.
 ```
+
+## TODO
+
+- [x] mendatory
+- [x] unicode
+- [ ] aknowledgement system
