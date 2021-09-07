@@ -6,7 +6,7 @@
 /*   By: cmaginot <cmaginot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:07:26 by cmaginot          #+#    #+#             */
-/*   Updated: 2021/08/13 09:48:35 by cmaginot         ###   ########.fr       */
+/*   Updated: 2021/09/07 20:46:35 by cmaginot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_send_char(int pid_server, const char char_to_send)
 		if (i == -1)
 			ft_error("server can't be found");
 		j = j >> 1;
-		usleep(500);
+		usleep(100);
 	}
 }
 
