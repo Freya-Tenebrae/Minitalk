@@ -6,7 +6,7 @@
 #    By: cmaginot <cmaginot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/14 23:11:43 by cmaginot          #+#    #+#              #
-#    Updated: 2021/09/09 15:15:43 by cmaginot         ###   ########.fr        #
+#    Updated: 2021/09/09 15:35:03 by cmaginot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS_SERVER_BONUS=$(addprefix ${FOLDER}/, \
 OBJS_CLIENT=$(SRCS_CLIENT:.c=.o)
 OBJS_CLIENT_BONUS=$(SRCS_CLIENT_BONUS:.c=.o)
 OBJS_SERVER=$(SRCS_SERVER:.c=.o)
-OBJS_SERVER_BONUS=$(SRCS_CLIENT_BONUS:.c=.o)
+OBJS_SERVER_BONUS=$(SRCS_SERVER_BONUS:.c=.o)
 
 INCLUDES=includes
 FOLDER=srcs
@@ -47,7 +47,7 @@ bonus: $(NAME_BONUS)
 
 $(NAME): $(NAME_LIBFT) $(NAME_SERVER) $(NAME_CLIENT)
 
-$(NAME_BONUS): $(NAME_LIBFT) $(NAME_SERVER_BONUS) $(NAME_CLIENT_BONUS)
+$(NAME_BONUS): $(NAME_LIBFT) $(NAME_CLIENT_BONUS) $(NAME_SERVER_BONUS) 
 
 $(NAME_LIBFT):
 	make -C $(LIBFT) bonus
