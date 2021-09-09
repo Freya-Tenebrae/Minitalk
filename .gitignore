@@ -1,9 +1,6 @@
 */.DS_Store
 *.o
 .DS_Store
-minitalk_server
-minitalk_client
-minitalk_server_bonus
 client
 server
 client_bonus
