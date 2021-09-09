@@ -6,7 +6,7 @@
 /*   By: cmaginot <cmaginot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:07:26 by cmaginot          #+#    #+#             */
-/*   Updated: 2021/09/07 20:46:36 by cmaginot         ###   ########.fr       */
+/*   Updated: 2021/09/09 15:10:33 by cmaginot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_error(char *str)
 {
-	ft_putstr_fd("ERROR : ", 1);
+	ft_putstr_fd("\nERROR : ", 1);
 	ft_putstr_fd(str, 1);
 	ft_putstr_fd(".\n", 1);
 	ft_putstr_fd("The server didn't received the message correctly\n", 0);
@@ -37,7 +37,7 @@ static void	ft_send_char(int pid_server, const char char_to_send)
 		if (i == -1)
 			ft_error("server can't be found");
 		j = j >> 1;
-		usleep(100);
+		usleep(150);
 	}
 }
 
