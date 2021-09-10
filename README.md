@@ -21,6 +21,11 @@ git clone --recurse-submodules https://github.com/Freya-Tenebrae/Minitalk.git
 ```shell
 make
 ```
+or
+```shell
+make bonus
+```
+to compile the bonuses
 
 ### Exemple of uses
 
@@ -57,3 +62,9 @@ This is a second test send by the 2nd Client.
 This is a thirst test send by the 3nd Client.
 This is a fourth test send by the 4nd Client.
 ```
+
+> For the bonus part you just need to change `./server` by `./server_bonus` and `./client` by `./client_bonus`
+
+#### Usefull Link
+
+[Text generator](https://www.blindtextgenerator.com/lorem-ipsum) that I used to test my program
