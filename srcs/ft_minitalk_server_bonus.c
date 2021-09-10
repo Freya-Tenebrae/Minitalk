@@ -6,7 +6,7 @@
 /*   By: cmaginot <cmaginot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:07:26 by cmaginot          #+#    #+#             */
-/*   Updated: 2021/09/09 15:33:50 by cmaginot         ###   ########.fr       */
+/*   Updated: 2021/09/10 13:31:48 by cmaginot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,17 @@ static void	ft_create_char_from_byte(int byte)
 
 static void	ft_get_byte(int signal, struct __siginfo *info, void *cont)
 {
-	(void)info;
+	int i;
+
 	(void)cont;
 	if (signal == SIGUSR2)
 		ft_create_char_from_byte(1);
 	else if (signal == SIGUSR1)
 		ft_create_char_from_byte(0);
+	usleep(50);
+	i = kill(info->si_pid, SIGUSR1);
+	if (i == -1)
+		ft_error("client can't be found");
 }
 
 int	main(void)

@@ -6,7 +6,7 @@
 /*   By: cmaginot <cmaginot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:07:26 by cmaginot          #+#    #+#             */
-/*   Updated: 2021/09/09 15:10:15 by cmaginot         ###   ########.fr       */
+/*   Updated: 2021/09/10 13:22:44 by cmaginot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	ft_send_char(int pid_server, const char char_to_send)
 	int	i;
 	int	j;
 
-	signal(SIGUSR1, NULL);
 	j = 1 << 7;
 	while (j)
 	{
