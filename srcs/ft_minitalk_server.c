@@ -44,7 +44,7 @@ static void	ft_create_char_from_byte(int byte)
 	}
 }
 
-static void	ft_get_byte(int signal, struct __siginfo *info, void *cont)
+static void	ft_get_byte(int signal, siginfo_t *info, void *cont)
 {
 	(void)info;
 	(void)cont;

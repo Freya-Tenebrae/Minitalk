@@ -6,7 +6,7 @@
 /*   By: cmaginot <cmaginot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 14:07:26 by cmaginot          #+#    #+#             */
-/*   Updated: 2021/09/10 13:31:48 by cmaginot         ###   ########.fr       */
+/*   Updated: 2021/09/16 19:25:55 by cmaginot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static void	ft_create_char_from_byte(int byte)
 	}
 }
 
-static void	ft_get_byte(int signal, struct __siginfo *info, void *cont)
+static void	ft_get_byte(int signal, siginfo_t *info, void *cont)
 {
-	int i;
+	int	i;
 
 	(void)cont;
 	if (signal == SIGUSR2)
